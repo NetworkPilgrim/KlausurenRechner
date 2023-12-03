@@ -27,7 +27,8 @@
         /// </summary>
         /// <param name="max_points"> Maximal zu erreichenende Punktzahl</param>
         /// <param name="points"> Tatschächlich erreichte Punktzahl</param>
-        private static void GenerateGrade(int max_points, int points) {
+        private static void GenerateGrade(int max_points, int points)
+        {
             // Ueberprüfung ob die Punktzahl kleiner oder gleich 20 ist
             if (points <= 20)
             {
@@ -46,13 +47,18 @@
             string suffix = "";
 
             // Vergleichen ist der Nachkommawert kleiner oder gleich 0,3
-            if (deci <= 0.3)
+            if (deci >= 0.6)
+            {
                 // Suffix auf "+" setzen
                 suffix = "+";
+                mark++;
+            }
             // Vergleichen ist der Nachkommawert groesser oder gleich 0,6
-            else if (deci >= 0.6)
+            else if (deci >= 0.3)
+            {
                 // Suffix auf "-" setzen
                 suffix = "-";
+            }
             // Ausgabe der Note und der Punktzahl
             Console.WriteLine(points + " von " + max_points + " entspricht der Note " + mark + suffix);
         }
